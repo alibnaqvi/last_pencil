@@ -8,10 +8,20 @@ public class Main {
         int pencils = scanner.nextInt();
 
         System.out.print("Who will be the first (John, Jack): ");
-        String name = scanner.next();
+        String name1 = scanner.next();
+        String name2 = name1.equals("John") ? "Jack" : "John";
 
-        System.out.println("|".repeat(pencils));
-
-        System.out.println(name + " is going first!");
+        while (pencils > 0) {
+            System.out.println("|".repeat(pencils));
+            System.out.println(name1 + "'s turn:");
+            int remove = scanner.nextInt();
+            pencils -= remove;
+            if (pencils <= 0) {
+                break;
+            }
+            String temp = name1;
+            name1 = name2;
+            name2 = temp;
+        }
     }
 }
